@@ -1,0 +1,525 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+:root {
+    /* CORES */
+    --color-prima-light-1: #FEFCF6;
+    --color-prima-light-2: #EBEBEB;
+    --color-prima-blue-1:  #A5BAC3;
+    --color-prima-blue-2:  #97C3D5;
+    --color-prima-blue-3:  #175D83;
+    --color-prima-blue-4:  #1B3A4B;
+}
+
+@theme {
+    /* BREAKPOINT */
+    --breakpoint-xs: 30rem;
+    --breakpoint-2md: 62.5rem;
+    --breakpoint-2xl: 100rem;
+    --breakpoint-3xl: 120rem;
+
+    /* FONTES */
+    --font-prima-ttl: "Be Vietnam Pro", sans-serif;
+    --font-prima-txt: "Roboto", sans-serif;
+
+    /* CORES */
+    --color-primaLight1: #FEFCF6;
+    --color-primaLight2: #EBEBEB;
+    --color-primaBlue1:  #A5BAC3;
+    --color-primaBlue2:  #97C3D5;
+    --color-primaBlue3:  #175D83;
+    --color-primaBlue4:  #1B3A4B;
+    --color-primaGrad1: rgba(138, 166, 179,0.7);
+}
+
+
+
+html {
+    @apply font-prima-txt text-primaBlue4;
+    @apply bg-primaLight1;
+}
+
+main {
+    background: linear-gradient(0deg, #c6cccc 0%, #FEFCF6 80%);
+}
+
+main > section {
+    @apply px-3 md:px-5;
+}
+
+.container {
+    @apply max-w-[1400px] pb-[200px] mx-auto;
+}
+
+hr {
+    /* @apply hidden; */
+}
+
+
+
+.sec-header {
+    @apply pb-10;
+}
+
+.sec-header > *:not(:last-child) {
+    @apply pb-8;
+}
+
+
+
+*[class*="ttl-"] {
+    @apply font-prima-ttl font-semibold;
+}
+
+.ttl-1 {
+    @apply text-4xl md:text-6xl lg:text-8xl;
+}
+.ttl-2 {
+    @apply text-3xl md:text-5xl lg:text-6xl;
+}
+.ttl-3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+}
+.ttl-4 {
+    @apply text-xl md:text-2xl lg:text-2xl;
+}
+
+
+
+
+
+/* ----- ----- ----- BANNER ----- */
+
+#banner {
+    /* @apply bg-red-400; */
+    @apply pb-[200px];
+}
+
+
+#banner .wrapper {
+    /* @apply bg-purple-400; */
+    @apply bg-primaGrad1 max-w-[1800px] py-[80px] mx-auto relative overflow-hidden rounded-lg shadow-xl;
+}
+
+#banner .wrapper > img {
+    /* @apply bg-purple-400; */
+    @apply absolute z-0 left-0 top-0 w-full h-full blur-[3px] scale-[1.1];
+    @apply object-cover object-center transition duration-400;
+
+    @apply group-hover:scale-[1.2];
+}
+
+
+#banner .container-box {
+    /* @apply bg-green-400; */
+    @apply relative z-5 flex justify-center;
+}
+
+
+#banner .inner {
+    @apply bg-primaBlue2 max-w-[1000px] p-10 rounded-md;
+}
+
+#banner .inner figure {
+    @apply flex justify-center pb-10;
+}
+
+#banner .inner > p {
+    @apply text-primaLight1 text-center;
+}
+
+
+
+
+/* ----- ----- ----- CAPA ----- */
+
+
+
+
+/* ----- ----- ----- GRIDs ----- */
+
+*[class^="my-layout"] {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-10 items-center;
+}
+
+
+.layout-masonry {
+    @apply columns-1 2md:columns-2 -mb-5;
+}
+.layout-masonry li {
+    @apply mb-5;
+}
+
+.layout-masonry li:nth-child(1),
+.layout-masonry li:nth-child(4) {
+    @apply h-[calc(200px)] lg:h-[calc(500px/2)];
+}
+.layout-masonry li:nth-child(2),
+.layout-masonry li:nth-child(3) {
+    @apply h-[calc(200px)] 2md:h-[calc(350px)] lg:h-[500px];
+}
+
+.layout-masonry li { 
+    @apply rounded-lg transition-[height] duration-160;
+}
+
+.layout-masonry li:not(.action) a { 
+    @apply block w-full h-full;
+}
+
+.layout-masonry img {
+    @apply absolute inset-0 w-full h-full;
+    @apply object-cover; /* navegadores modernos */
+    font-family: "object-fit: cover"; /* fallback para IE */
+    background-size: cover; /* fallback muito antigo */
+}
+
+
+li.grid-action { 
+    @apply bg-primaBlue1 w-full h-full p-5 flex flex-col justify-between items-start;
+    @apply hover:bg-primaBlue2 hover:shadow-xl transition duration-222;
+}
+
+li.grid-action a {
+    @apply font-prima-ttl font-semibold text-3xl text-primaBlue4 w-full h-full;
+    @apply hover:text-primaBlue3 transition duration-150;
+}
+
+
+
+
+.layout-col-3 li {
+    @apply overflow-hidden rounded-lg;
+}
+
+.layout-col-3 {
+    /* @apply bg-blue-400 md:bg-red-400 lg:bg-purple-400 xl:bg-pink-400  */
+    @apply grid gap-4
+    /* --- full */
+    grid-cols-none xl:grid-cols-4 grid-rows-none xl:grid-rows-2
+    /* --- meio */
+    lg:grid-cols-3 lg:grid-rows-2
+    /* --- small */
+    md:grid-cols-2 md:grid-rows-3;
+}
+
+.layout-col-3 li:nth-child(1) {
+    @apply col-span-1 md:col-span-2 row-span-2;
+}
+
+.layout-col-3 li:nth-child(3),
+.layout-col-3 li:nth-child(4) {
+    @apply hidden xl:block;
+}
+
+.layout-col-3 figure {
+    @apply pb-[calc(100%-32px)]
+}
+
+
+
+
+/* ----- ----- ----- CARD-BLUR ----- */
+
+.car-blur {
+    @apply relative w-full h-full overflow-hidden;
+}
+.car-blur:before {
+    @apply content-[''] absolute z-1 left-0 top-0 w-full h-full opacity-100 lg:opacity-0;
+    background: linear-gradient(0deg, rgba(27,58,75,0.700717787114846) 20%, rgba(27,58,75,0) 100%);
+
+    @apply  transition-[opacity] duration-400 ease-in-out;
+}
+.car-blur:hover {
+    @apply shadow-xl;
+}
+.car-blur:hover:before {
+    @apply opacity-100;
+}
+
+
+.car-blur figure {
+    @apply w-full h-full;
+}
+
+.car-blur figure img {
+    @apply absolute inset-0 w-full h-full;
+    @apply object-cover; /* navegadores modernos */
+    font-family: "object-fit: cover"; /* fallback para IE */
+    background-size: cover; /* fallback muito antigo */
+
+    @apply transition-[scale] transition-[blur] duration-400 ease-in-out;
+}
+
+.car-blur:hover figure img {
+    @apply scale-[1.1] blur-[2px];
+}
+
+
+.car-blur div {
+    @apply font-prima-ttl font-semibold text-xl text-primaLight2;
+    @apply absolute z-2 left-[20px] bottom-[20px] opacity-100 lg:opacity-0;
+
+    @apply transition duration-222 ease-in;
+}
+.car-blur:hover div {
+    @apply opacity-100;
+}
+
+
+
+
+/* ----- ----- ----- LINK ----- */
+
+*[class^="link"] {
+    @apply font-prima-ttl font-semibold text-primaBlue4;
+    @apply hover:text-primaBlue3 transition-colors duration-222;
+}
+
+*[class^="link"] i:nth-child(1) {
+    @apply pr-2;
+}
+*[class^="link"]:hover i:nth-child(1) {
+    animation: slide_Left 0.7s ease-in-out;
+}
+
+*[class^="link"] i:nth-child(2) {
+    @apply pl-2;
+}
+*[class^="link"]:hover i:nth-child(2) {
+    animation: slide_Right 0.7s ease-in-out;
+}
+
+@keyframes slide_Left {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    49% {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(60%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes slide_Right {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    49% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-60%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+
+/* ----- ----- ----- CARD-BLUG ----- */
+
+.card-blue > * {
+    @apply text-center p-8 bg-primaBlue1 rounded-lg flex flex-col h-full justify-between;
+    @apply relative z-5 hover:bg-primaBlue2 hover:shadow-2xl transition duration-300;
+}
+
+.card-blue figure {
+    @apply flex justify-center pb-8 h-[130px];
+}
+.card-blue img {
+    @apply object-contain h-auto max-h-full w-[100%] max-w-[360px];
+}
+
+.card-blue p {
+    @apply text-sm;
+}
+
+.card-blue .ttl-4 {
+    @apply pb-5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*   HEADER
+*/
+
+
+
+
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*   HOME
+*/
+
+/* ----- ----- ----- MARCAS ----- */
+
+.grid-marcas {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-10;
+}
+
+
+
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*   SOBRE
+*/
+
+#historia .sec-header {
+    @apply text-center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----- ----- ----- TIMELINE ----- */
+
+.timeline {
+    /* box-shadow: inset 0 0 0 20px rgba(255, 0, 0, 0.5); */
+}
+
+.timeline header {
+    @apply pb-5;
+}
+
+
+.timeline > li {
+    /* box-shadow: inset 0 0 0 10px rgba(9, 255, 0, 0.5); */
+    @apply relative pl-10 pb-20 flex flex-col-reverse md:flex-col;
+}
+.timeline > li:before,
+.timeline > li:after {
+    @apply content-[''] absolute z-0 left-0 bg-primaBlue1;
+}
+.timeline > li:before {
+    @apply w-[15px] h-[15px] rounded-full top-2;
+}
+.timeline > li:after {
+    /* @apply w-[10px] h-full rounded-full top-[33px] left-0.5; */
+    @apply w-[10px] h-[calc(100%-80px)] rounded-full top-[33px] left-0.5;
+}
+.timeline > li:not(:last-child):after {
+    @apply h-[calc(100%-35px)];
+}
+
+
+.timeline .col-a,
+.timeline .col-b {
+    @apply w-full md:w-1/2 lg:w-1/2;
+}
+
+.timeline .col-a {
+    @apply mt-10;
+}
+
+
+.timeline figure {
+    @apply w-full overflow-hidden rounded-lg;
+}
+
+.timeline figure img {
+    @apply w-full;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----- ----- ----- VALORES ----- */
+
+.grid-valores {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-10;
+}
+
+
+
+
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*   FOOTER
+*/
+footer {
+    @apply bg-primaBlue4 h-[300px];
+}
