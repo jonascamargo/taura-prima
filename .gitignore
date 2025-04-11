@@ -2,6 +2,5 @@ docker-compose.yml
 router.php
 node_modules
 package-lock.json
-output.css
 old
 bk01--prima-html.zip
