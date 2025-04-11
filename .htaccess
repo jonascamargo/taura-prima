@@ -1,0 +1,9 @@
+Options -MultiViews
+RewriteEngine On
+
+# Se o arquivo ou diretório não existe
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redireciona para o arquivo .php
+RewriteRule ^([^/]+)/?$ $1.php [L]
